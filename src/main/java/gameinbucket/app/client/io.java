@@ -1,15 +1,15 @@
 package gameinbucket.app.client;
 
-import gameinbucket.app.client.graphics.image;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import javax.imageio.ImageIO;
+
+import gameinbucket.app.client.graphics.image;
 
 public abstract class io {
     private static final String path = "res/";

@@ -64,7 +64,7 @@ public class baron extends npc {
 
             if ((t.flags & flag_human) != 0 && t.health > 0) {
                 target = t;
-                new sound(scream_sound).start();
+                // new sound(scream_sound).start();
                 status = STATUS_CHASE;
                 return;
             }

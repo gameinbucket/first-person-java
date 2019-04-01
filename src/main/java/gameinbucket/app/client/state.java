@@ -603,6 +603,37 @@ public class state {
     }
 
     public void draw() {
+
+        opengl.framebuffer(0);
+        opengl.program(p_texture2);
+        opengl.view(0, 0, client.width, client.height);
+
+        glDisable(GL_DEPTH_TEST);
+        glDisable(GL_CULL_FACE);
+        glDisable(GL_DEPTH_TEST);
+        glDisable(GL_BLEND);
+
+        glClearColor(0f, 1f, 1f, 1f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        opengl.orthographic(orthographic, 0.0f, 0.0f);
+        opengl.mvp();
+
+        texture anim123 = you.animation[you.frame];
+
+        bgui[0].begin();
+        draw.image(bgui[0], 0, 0, anim123.width, anim123.height, 0, 0, 1, 1);
+        bgui[0].end();
+
+        opengl.texture0(anim123.id);
+        opengl.draw_elements(bgui[0]);
+
+        boolean poop = true;
+        if (poop)
+            return;
+
+        // end debug
+
         long before = System.currentTimeMillis();
 
         // geometry
@@ -644,7 +675,7 @@ public class state {
         glEnable(GL_DEPTH_TEST);
         glEnable(GL_CULL_FACE);
 
-        final int cull_type = 1;
+        final int cull_type = 0;
 
         if (cull_type == 1 || cull_type == 2)
             glEnable(GL_STENCIL_TEST);
